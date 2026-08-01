@@ -1,0 +1,71 @@
+
+package numberguessinggame;
+
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class NumberGuessingGame {
+public static int maxTries=7;
+public static int attempts=2; 
+public static int target;
+public static int guess;
+
+
+
+    public static void main(String[] args) {
+        Scanner s= new Scanner(System.in);
+        Random random=new Random();
+        
+        System.out.println("________Number Guessing Game_______");
+        String playAgain="y";
+        while(playAgain.equals("y")){
+        target=random.nextInt(100)+1;
+        
+         System.out.println("think of a number between 1-100");
+         System.out.println("you have "+maxTries +"tries");
+         
+        boolean won=false;
+         while (attempts<maxTries){
+          System.out.println("enter your guess");
+         
+         
+          guess=s.nextInt();
+          attempts++;
+         
+          if(guess==target){
+           System.out.println("won");
+              
+            }
+          else if (guess<target) {
+           System.out.println("higher");
+          }    
+         
+          else {
+              System.out.println("lower"); 
+          }
+            
+          if(won){
+          System.out.println("the number was"+target);
+          System.out.println("attempts used:"+attempts);
+          break;
+         }
+          else{
+              System.out.println("the number was"+target);
+          }
+            System.out.println("play again");
+            playAgain=s.next();
+          }
+         
+         if(!won){
+             System.out.println(" the number was"+target);
+         }
+         s.close();
+         
+        }
+        System.out.println("thank you for playing");
+        
+        }
+    }
+
+    
